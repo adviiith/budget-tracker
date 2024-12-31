@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .App {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .entry-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .entry-form label {
+    font-weight: bold;
+  }
+  
+  .entry-form input,
+  .entry-form select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .entry-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .entry-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .expense-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .latest-transactions {
+    margin-bottom: 20px;
+  }
+  
+  .latest-transaction-cards {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .transaction-card {
+    flex: 0 0 auto;
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    text-align: center;
+  }
+  
+  .transaction-card .entry-type {
+    font-weight: bold;
+    color: #4caf50;
+  }
+  
+  .transaction-card .entry-category {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .transaction-card .entry-amount {
+    font-size: 1.2rem;
+    color: #ff5733;
+  }
+  
+  .transaction-card button {
+    margin-top: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .transaction-card button:hover {
+    background: #0056b3;
+  }
+  
+  /* Full Transaction History */
+  .full-transaction-history {
+    margin-top: 20px;
+  }
+  
+  .transaction-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 10px;
+  }
+  
+  .transaction-row {
+    display: contents;
+    align-items: center;
+  }
+  
+  .transaction-row div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .transaction-row button {
+    background: #e64e2c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .transaction-row button:hover {
+    background: #c12a19;
+  }
+  
+  
+  /* Full Transaction History */
+  .full-transaction-history {
+    margin-top: 20px;
+  }
+  
+  .transaction-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 10px;
+  }
+  
+  .transaction-row {
+    display: contents;
+    align-items: center;
+  }
+  
+  .transaction-row div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .transaction-row button {
+    background: #e64e2c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .transaction-row button:hover {
+    background: #c12a19;
+  }
+  
+  
+  
+  .expense-list button {
+    background: #ff5733;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .expense-list button:hover {
+    background: #e64e2c;
+  }
+  
+  
+  .chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .chart-container canvas {
+    width: 45%;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .entry-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .expense-list li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  .export-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .export-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .export-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48%;
+  }
+  
+  .button-group button.active {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .button-group button:hover {
+    background-color: #45a049;
+  }
+  
+  .entry-form select,
+  .entry-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .entry-form button {
+    padding: 10px 20px;
+    background-color: #d12c2c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .entry-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  
