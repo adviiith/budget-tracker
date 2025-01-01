@@ -4,14 +4,17 @@ import ExpenseList from './ExpenseList';
 import { Pie } from 'react-chartjs-2';
 import { jsPDF } from 'jspdf';
 import Papa from 'papaparse';
+import 'jspdf-autotable'; // Import the jsPDF autoTable plugin
 import { Charts as ChartJS } from 'chart.js/auto';
-import "./App.css"
+import "./App.css";
+import NavBar from "./NavBar";
 
 const App = () => {
   const [entries, setEntries] = useState([]);
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
   const [categoryData, setCategoryData] = useState({});
+  const [isHistoryVisible, setIsHistoryVisible] = useState(false); // State to toggle transaction history
 
   useEffect(() => {
     const savedEntries = JSON.parse(localStorage.getItem('entries'));
@@ -114,26 +117,36 @@ const App = () => {
     doc.setFontSize(18);
     doc.text("Expense Report", 20, 20);
 
-    // Create a table for expenses
-    let y = 30;
-    doc.setFontSize(12);
-    doc.text("Category", 20, y);
-    doc.text("Amount", 100, y);
-    y += 10;
-
-    entries
+    // Using autoTable for the formatted table
+    const tableColumns = ['Category', 'Amount'];
+    const tableData = entries
       .filter((entry) => entry.type === 'expense') // Only include expenses
-      .forEach((entry) => {
-        doc.text(entry.category, 20, y);
-        doc.text(`${entry.amount}`, 100, y);
-        y += 10;
-      });
+      .map(entry => [entry.category, entry.amount]);
+
+    doc.autoTable({
+      head: [tableColumns],
+      body: tableData,
+      startY: 30,
+      theme: 'grid',
+      headStyles: { fillColor: '#4CAF50', textColor: '#fff' },
+      bodyStyles: { fontSize: 12 },
+      margin: { top: 20, left: 20, right: 20, bottom: 20 },
+    });
 
     doc.save('expenses.pdf');
   };
 
+  // Toggle visibility of transaction history
+  const toggleHistory = () => {
+    setIsHistoryVisible(!isHistoryVisible);
+  };
+
   return (
+    
     <div className="App">
+      <div>
+        <NavBar />
+      </div>
       <h1>Personal Budget Tracker</h1>
       <IncomeExpenseForm onAddEntry={handleAddEntry} />
       <ExpenseList entries={entries} onDelete={handleDeleteEntry} />
@@ -153,6 +166,39 @@ const App = () => {
         <button onClick={exportToCSV}>Export Expenses CSV</button>
         <button onClick={exportToPDF}>Export Expenses PDF</button>
       </div>
+
+      <div className="history-toggle">
+        <button onClick={toggleHistory}>
+          {isHistoryVisible ? 'Hide Full Transaction History' : 'Show Full Transaction History'}
+        </button>
+      </div>
+
+      {/* Conditionally render the full transaction history */}
+      {isHistoryVisible && (
+        <div className="transaction-history">
+          <h3>Full Transaction History</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((entry) => (
+                <tr key={entry.id}>
+                  <td>{entry.type}</td>
+                  <td>{entry.category}</td>
+                  <td>{entry.amount}</td>
+                  <td>{new Date(entry.date).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,45 +5,56 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("income");
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
-
-  // Categories for expenses
-  const categories = [
+  const [customCategory, setCustomCategory] = useState("");
+  const [categories, setCategories] = useState([
     "Food",
     "Entertainment",
     "Rent",
     "Utilities",
     "Salary",
     "Shopping",
-    "Misc",
-    "Travel",   // New category
+    "Travel", // New category
     "Healthcare" // New category
-  ];
+  ]);
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (amount) {
-      const entry = {
-        id: Date.now(),
-        amount: parseFloat(amount),
-        category: type === "expense" ? category : "N/A", // No category for credit
-        type,
-      };
+    // If category is empty, use "Misc"
+    const finalCategory = category === "" ? "Misc" : (type === "expense" ? (category === "Custom" ? customCategory : category) : "N/A");
 
-      onAddEntry(entry);
-      setAmount("");
-      setCategory("");
-    }
+    const entry = {
+      id: Date.now(),
+      amount: parseFloat(amount),
+      category: finalCategory,
+      type,
+    };
+
+    onAddEntry(entry);
+
+    // Reset form fields
+    setAmount("");
+    setCategory(""); // Reset category to empty to avoid showing "Misc"
+    setCustomCategory("");
   };
 
-  // Handle the button click for credit or debit
+  // Handle the button click for credit/debit
   const handleTypeChange = (type) => {
     setType(type);
     if (type === "expense") {
       setShowCategoryDropdown(true); // Show category dropdown for expenses
     } else {
       setShowCategoryDropdown(false); // Hide category dropdown for credit
+    }
+  };
+
+  // Add custom category to the list
+  const handleAddCustomCategory = () => {
+    if (customCategory.trim() && !categories.includes(customCategory)) {
+      setCategories((prev) => [...prev, customCategory]);
+      setCategory(customCategory); // Select the newly added category
+      setCustomCategory(""); // Clear the input
     }
   };
 
@@ -85,7 +96,6 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            required
           >
             <option value="">Select an Expense Category</option>
             {categories.map((cat) => (
@@ -93,11 +103,33 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
                 {cat}
               </option>
             ))}
+            <option value="Custom">Custom</option>
           </select>
+
+          {/* Show custom category input if "Custom" is selected */}
+          {category === "Custom" && (
+            <div className="custom-category-input">
+              <input
+                type="text"
+                placeholder="Enter custom category"
+                value={customCategory}
+                onChange={(e) => setCustomCategory(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={handleAddCustomCategory}
+                disabled={!customCategory.trim()}
+              >
+                Add
+              </button>
+            </div>
+          )}
         </>
       )}
 
-      <button type="submit">Add Entry</button>
+      <button id="submit" type="submit">
+        Add Entry
+      </button>
     </form>
   );
 };
