@@ -16,6 +16,10 @@
   "dependencies": {
   "papaparse": "^5.3.0"
 },
+  "engines": {
+  "node": "18.x"
+},
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
