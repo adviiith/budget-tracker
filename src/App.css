@@ -13,6 +13,8 @@ body {
     margin-bottom: 20px;
   }
   
+  
+
   .App {
     max-width: 800px;
     margin: 30px auto;
@@ -27,6 +29,7 @@ body {
     grid-template-columns: 1fr;
     gap: 15px;
     margin-bottom: 30px;
+    
   }
   
   .entry-form label {
@@ -40,8 +43,25 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
+    
   }
+
+  .entry-form input[type="number"] {
+    padding: 5px;
+    font-size: 14px;
+    width: 100%; /* Adjust the width as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
   
+  .custom-category-input{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+  }
+
   .entry-form button {
     padding: 10px 20px;
     font-size: 16px;
@@ -240,7 +260,7 @@ body {
   }
   
   .export-buttons button:hover {
-    background-color: #0056b3;
+    background-color: #e2a517;
   }
   
   .button-group {
@@ -289,4 +309,70 @@ body {
     background-color: #0056b3;
   }
   
+  #submit{
+    background-color: #1d37ae;
+  }
+  #submit:hover{
+    background-color: #1574c2;
+  }
+
+  .history-toggle {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 20px; /* Add space above the button */
+  }
+  
+  .history-toggle button {
+    padding: 10px 20px; /* Increased padding for a distinct look */
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background-color: #000; /* Black button */
+    border: none;
+    border-radius: 8px; /* More rounded corners for a unique style */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .history-toggle button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+    transform: scale(1.1); /* More noticeable hover effect */
+  }
+  
+  .history-toggle button:active {
+    background-color: #555; /* Lighter black on click */
+    transform: scale(0.95); /* Slightly smaller when clicked */
+  }
+  
+  .history-toggle button:focus {
+    outline: 2px solid #fff; /* Add a white outline for accessibility */
+  }
+  
+  
+  
+  .transaction-history {
+    margin-top: 20px;
+  }
+  
+  .transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transaction-history th,
+  .transaction-history td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .transaction-history th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .transaction-history tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
   

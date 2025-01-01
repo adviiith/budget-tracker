@@ -22,7 +22,7 @@
   table td {
     padding: 10px;
     text-align: left;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
   }
   
   table th {
@@ -32,4 +32,5 @@
   table tr:nth-child(even) {
     background: #f9f9f9;
   }
+  
   
