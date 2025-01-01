@@ -16,7 +16,6 @@
   },
   "dependencies": {
   "papaparse": "^5.3.0",
-  // other dependencies
 },
   "scripts": {
     "start": "react-scripts start",
