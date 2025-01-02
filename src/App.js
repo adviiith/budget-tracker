@@ -6,7 +6,6 @@ import { jsPDF } from 'jspdf';
 import Papa from 'papaparse';
 import 'jspdf-autotable'; // Import the jsPDF autoTable plugin
 import "./App.css";
-import NavBar from "./NavBar";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 const App = () => {
