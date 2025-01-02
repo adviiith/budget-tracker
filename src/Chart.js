@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto';
 
 const Charts = ({ totalIncome, totalExpense, categoryData }) => {
   // Data for Income vs Expense chart
