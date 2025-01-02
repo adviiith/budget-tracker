@@ -144,10 +144,7 @@ const App = () => {
   return (
     
     <div className="App">
-      <div>
-        <NavBar />
-      </div>
-      <h1>Personal Budget Tracker</h1>
+      <h1>BudgetFlo</h1>
       <IncomeExpenseForm onAddEntry={handleAddEntry} />
       <ExpenseList entries={entries} onDelete={handleDeleteEntry} />
 
