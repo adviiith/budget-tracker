@@ -5,7 +5,6 @@ import { Pie } from 'react-chartjs-2';
 import { jsPDF } from 'jspdf';
 import Papa from 'papaparse';
 import 'jspdf-autotable'; // Import the jsPDF autoTable plugin
-import { Charts as ChartJS } from 'chart.js/auto';
 import "./App.css";
 import NavBar from "./NavBar";
 
