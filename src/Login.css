@@ -1,0 +1,104 @@
+/* Login.css */
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .auth-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .auth-container label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .auth-container .auth-input {
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+  }
+  
+  .auth-container .auth-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  .auth-container .auth-input::placeholder {
+    color: #aaa;
+  }
+  
+  .auth-container button.auth-button {
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+  }
+  
+  .auth-container button.auth-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  .auth-container button.auth-button:active {
+    transform: scale(1);
+  }
+  
+  .auth-container .google-button {
+    background-color: #4285F4;
+    margin-top: 15px;
+  }
+  
+  .auth-container .google-button:hover {
+    background-color: #357ae8;
+  }
+  
+  .auth-container p {
+    color: red;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    .auth-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    .auth-container h2 {
+      font-size: 2rem;
+    }
+  
+    .auth-container button.auth-button {
+      font-size: 1rem;
+    }
+  }
+  
