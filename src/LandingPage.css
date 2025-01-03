@@ -1,12 +1,9 @@
 /* LandingPage.css */
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     height: 100vh;
-    background: linear-gradient(135deg, #4caf50, #ff5733);
-    color: #fff;
+    background: linear-gradient(135deg, #b6bcb6, #fff8f6);
+    color: #000000;
     text-align: center;
   }
   
@@ -118,4 +115,18 @@
     background-color: #ddd;
   }
   
+  .getstarted-button {
+    padding: 12px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
   
+  .getstarted-button:hover {
+    background-color: #2a2d30;
+  }

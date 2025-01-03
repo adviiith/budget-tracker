@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute'; // Import PrivateRoute
 import { auth } from './firebase'; // Import Firebase auth
 import BT from './BT';
 
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -40,6 +41,7 @@ const App = () => {
   }
 
   return (
+    
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />

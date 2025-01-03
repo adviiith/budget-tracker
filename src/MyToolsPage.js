@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import "./MyToolsPage.css";
+import { Navigate } from 'react-router-dom';
 const MyToolsPage = ({ onLogout }) => {
   const navigate = useNavigate(); // Initialize navigate hook
 
   const handleLogout = () => {
     if (onLogout) {
-      onLogout(); // Logout and redirect to landing page
-      navigate("/"); // Redirect to landing page after logout
+        onLogout(); 
     } else {
       console.error("onLogout function is not available");
     }
@@ -25,9 +25,7 @@ const MyToolsPage = ({ onLogout }) => {
           Coming Soon!
         </button>
       </div>
-      <button onClick={handleLogout} className="logout-button">
-        Logout
-      </button>
+      <Link to="/" onClick={handleLogout}><button className="logout-button">Logout</button></Link>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./SignUp.css";
-
+import { Link } from "react-router-dom";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,12 +42,14 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
             placeholder="Enter your password"
-          />
+          />  
         </div>
         {error && <p>{error}</p>}
         <button className="signup-button" type="submit">Signup</button>
       </form>
+      <Link to="/login" id="login-link">Already Signed Up? Login Here</Link>
     </div>
+    
   );
 };
 
