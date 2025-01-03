@@ -1,13 +1,13 @@
 import React from "react";
 import "./LandingPage.css";
 import { useNavigate, Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Nb from "./Navbar";
 
 const LandingPage = () => {
 
   return (
     <div className="landing-container">
-        <div id="navbar"><Navbar /></div>
+        <div id="navbar"><Nb /></div>
      <div className="landing-header">
         <h1>Welcome to BudgetFlo</h1>
         <p>Manage your finances with ease and efficiency!</p>
