@@ -7,6 +7,7 @@ import Papa from 'papaparse';
 import 'jspdf-autotable'; // Import the jsPDF autoTable plugin
 import "./BT.css";
 
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 

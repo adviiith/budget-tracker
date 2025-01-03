@@ -15,6 +15,19 @@
     margin-bottom: 20px;
     color: #333;
   }
+
+  #login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
   
   .signup-container form {
     display: flex;
@@ -39,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 95%;
   }
   
   .signup-container .signup-input:focus {
