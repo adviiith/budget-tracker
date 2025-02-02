@@ -1,0 +1,101 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.navbar.at-top {
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-text {
+  color: #ffffff;
+}
+
+.logo-highlight {
+  color: #6dd5ed;
+}
+
+.navbar.scrolled .logo-text {
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-item {
+  color: #333;
+}
+
+.nav-item:hover {
+  color: #6dd5ed;
+}
+
+.nav-item.login,
+.nav-item.signup {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-item.login {
+  border: 1px solid #ffffff;
+}
+
+.nav-item.signup {
+  background-color: #6dd5ed;
+  color: #ffffff;
+}
+
+.navbar.scrolled .nav-item.login {
+  border-color: #333;
+}
+
+.navbar.scrolled .nav-item.signup {
+  background-color: #2193b0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+

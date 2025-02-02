@@ -8,7 +8,7 @@ import MyToolsPage from './MyToolsPage';
 import PrivateRoute from './PrivateRoute'; // Import PrivateRoute
 import { auth } from './firebase'; // Import Firebase auth
 import BT from './BT';
-
+import CurrencyConverter from './CurrencyConverter';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -58,6 +58,7 @@ const App = () => {
           }
         />
         <Route path="/budgetflo" element={<BT />} />
+        <Route path='currency-converter' element={<CurrencyConverter />} />
       </Routes>
     </Router>
   );
