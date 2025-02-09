@@ -117,7 +117,7 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
                 value={customCategory}
                 onChange={(e) => setCustomCategory(e.target.value)}
               />
-              <button type="button" onClick={handleAddCustomCategory} disabled={!customCategory.trim()}>
+              <button id="submit" type="button" onClick={handleAddCustomCategory} disabled={!customCategory.trim()}>
                 Add
               </button>
             </div>

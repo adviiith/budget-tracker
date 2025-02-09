@@ -91,7 +91,14 @@ const LandingPage = () => {
           >
             <div className="laptop-mockup">
               <div className="laptop-screen">
-                <img src="./ss.png" alt="BudgetFlo App" />
+                <video
+                  src="/video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="laptop-video"
+                ></video>
               </div>
               <div className="laptop-base"></div>
             </div>
