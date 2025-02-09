@@ -45,6 +45,8 @@
 ---
 
 ### 4. BudgetFlo: Your Financial Command Center
+![BudgetFlo Interface](public/ss1.png)
+
 #### Core Features:
 - **Transaction Management**:  
   - Add income/expense entries with categories  
@@ -56,14 +58,14 @@
     - Income vs Expense breakdown  
     - Category-wise spending distribution  
   - Responsive chart tooltips  
-
+![Pie Charts](public/ss6.png)
 - **Smart Analysis**:  
   - Recent transactions preview (last 4 entries)  
   - Full history table with toggle  
   - Export options:  
     - CSV (full expense data)  
     - PDF (categorized report)  
-
+![Alt Text](public/ss2.png)
 - **AI Financial Advisor (Gemini API)**:  
   ```javascript
   // Illegal Expense Detection Logic:
@@ -72,14 +74,18 @@
     - Blocks financial advice
     - Issues legal warnings
     - Suggests alternatives
-  
+  ```
+![Alt Text](public/ss4.png)
+```javascript
   // Health-Conscious Handling:
   1. Detects cigarette/alcohol expenses
   2. If found:
     - Standard financial tips +
     - Health improvement suggestions
     - Potential savings calculation
-  
+  ```
+![Alt Text](public/ss5.png)
+```javascript
   // Normal Operation:
   1. Full analysis of spending patterns
   2. Optimization strategies
@@ -87,6 +93,7 @@
   4. Conversational tone with "firm but supportive" warnings
 
   ```
+![Alt Text](public/ss3.png)
 
 ### 5. Currency Converter: Global Finance Toolkit
 #### Key Features:
@@ -94,7 +101,7 @@
   - 160+ currency support
   - Live rate updates (1hr cache)
   - Swap currencies with 1 click
-
+![Alt Text](public/ss8.png)
 #### Advanced Features:
 
 - **30-Day Historical Trends:**
@@ -103,6 +110,7 @@
 
 - **Zoomable line chart (Ctrl+Scroll)**
 
+![Alt Text](public/ss7.png)
 #### Popular Currency Quick View:
 
 - **Pre-configured major currencies**
