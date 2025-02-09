@@ -173,7 +173,7 @@ Happy budgeting! 💰
 
 ## Demo
 
-You can view a live demo of the app on [BudgetFlo]((https://budgetflow2.netlify.app/)).
+You can view a live demo of the app on https://budgetflow2.netlify.app/.
 
 ## Installation
 
