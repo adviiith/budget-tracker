@@ -171,3 +171,40 @@ Thank you for choosing **BudgetFlo**! We hope this tool helps you achieve your f
 
 Happy budgeting! 💰
 
+## Demo
+
+You can view a live demo of the app on [BudgetFlo]((https://budgetflow2.netlify.app/)).
+
+## Installation
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/adviiith/budget-tracker.git
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd budget-tracker
+
+3. Install dependencies:
+
+    ```bash
+    npm install
+
+4. Start the development server:
+
+    ```bash
+    npm start
+
+The app will be available at http://localhost:3000 in your browser.
+
+## Contributing
+Feel free to fork the repository and submit pull requests. If you find any issues or have suggestions for improvements, feel free to open an issue on the GitHub repository.
+
+## Created by- Advith Sharma
+
+
+This is the full readme file that you can save as `README.md` for your GitHub repository. Let me know if you'd like to make any other changes!
