@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute'; // Import PrivateRoute
 import { auth } from './firebase'; // Import Firebase auth
 import BT from './BT';
 import CurrencyConverter from './CurrencyConverter';
+import Advice from './Advice';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -52,11 +53,10 @@ const App = () => {
         <Route
           path="/tools"
           element={
-            <PrivateRoute user={user}>
-              <MyToolsPage onLogout={onLogout} />
-            </PrivateRoute>
+              <MyToolsPage />
           }
         />
+        <Route path='/advice' element={<Advice />} />
         <Route path="/budgetflo" element={<BT />} />
         <Route path='currency-converter' element={<CurrencyConverter />} />
       </Routes>

@@ -37,20 +37,8 @@ const Navbar = () => {
           <span className="logo-highlight">Flo</span>
         </Link>
         <div className="nav-links">
-          <Link to="#features" className="nav-item">
-            Features
-          </Link>
-          <Link to="#pricing" className="nav-item">
-            Pricing
-          </Link>
-          <Link to="#about" className="nav-item">
-            About
-          </Link>
-          <Link to="/login" className="nav-item login">
-            Login
-          </Link>
           <Link to="/signup" className="nav-item signup">
-            Sign Up
+            Register
           </Link>
         </div>
       </div>

@@ -1,378 +1,314 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial", sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  h1,
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  
-
-  .App {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .entry-form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-bottom: 30px;
-    
-  }
-  
-  .entry-form label {
-    font-weight: bold;
-  }
-  
-  .entry-form input,
-  .entry-form select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    
-  }
-
-  .entry-form input[type="number"] {
-    padding: 5px;
-    font-size: 14px;
-    width: 100%; /* Adjust the width as needed */
-    border: 1px solid #ccc;
-    border-radius: 4px;
+:root {
+  --primary-gradient: linear-gradient(135deg, #60a5fa, #34d399);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s ease;
 }
 
-  
-  .custom-category-input{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #1a1a2e;
+  color: #e1e1e6;
+  line-height: 1.6;
+}
 
-  .entry-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #60a5fa;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Entry Form Styles */
+.entry-form {
+  background: #16213e;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.entry-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.entry-form input,
+.entry-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.entry-form input:focus,
+.entry-form select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.entry-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.entry-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+.entry-form select option {
+  background-color: #16213e;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.button-group button:first-child {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.button-group button:last-child {
+  background-color: #ef4444;
+  color: white;
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+  opacity: 0.9;
+}
+
+/* Chart Container */
+.chart-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-wrapper {
+  background: #16213e;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  height: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-wrapper h2 {
+  font-size: 1.25rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Transaction Cards */
+.expense-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.transaction-card {
+  background: #16213e;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transaction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.transaction-card .entry-type {
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.transaction-card .entry-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e1e1e6;
+}
+
+.transaction-card .entry-category {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.transaction-card button {
+  margin-top: auto;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.transaction-card button:hover {
+  background-color: #dc2626;
+}
+
+/* History Section */
+.history-toggle {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.history-toggle button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.history-toggle button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.transaction-history {
+  background: #16213e;
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transaction-history table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-history th {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #e1e1e6;
+}
+
+.transaction-history td {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e1e1e6;
+}
+
+.transaction-history tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.transaction-history .delete-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.transaction-history .delete-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Export Buttons */
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.export-buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.export-buttons button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
   }
   
-  .entry-form button:hover {
-    background-color: #45a049;
+  .chart-container {
+    grid-template-columns: 1fr;
   }
   
   .expense-list {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
   }
-  
-  .latest-transactions {
-    margin-bottom: 20px;
-  }
-  
-  .latest-transaction-cards {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-  
-  .transaction-card {
-    flex: 0 0 auto;
-    width: 200px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
-    text-align: center;
-  }
-  
-  .transaction-card .entry-type {
-    font-weight: bold;
-    color: #4caf50;
-  }
-  
-  .transaction-card .entry-category {
-    font-style: italic;
-    color: #555;
-  }
-  
-  .transaction-card .entry-amount {
-    font-size: 1.2rem;
-    color: #ff5733;
-  }
-  
-  .transaction-card button {
-    margin-top: 10px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .transaction-card button:hover {
-    background: #0056b3;
-  }
-  
-  /* Full Transaction History */
-  .full-transaction-history {
-    margin-top: 20px;
-  }
-  
-  .transaction-table {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr auto;
-    gap: 10px;
-  }
-  
-  .transaction-row {
-    display: contents;
-    align-items: center;
-  }
-  
-  .transaction-row div {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .transaction-row button {
-    background: #e64e2c;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .transaction-row button:hover {
-    background: #c12a19;
-  }
-  
-  
-  /* Full Transaction History */
-  .full-transaction-history {
-    margin-top: 20px;
-  }
-  
-  .transaction-table {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr auto;
-    gap: 10px;
-  }
-  
-  .transaction-row {
-    display: contents;
-    align-items: center;
-  }
-  
-  .transaction-row div {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .transaction-row button {
-    background: #e64e2c;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .transaction-row button:hover {
-    background: #c12a19;
-  }
-  
-  
-  
-  .expense-list button {
-    background: #ff5733;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .expense-list button:hover {
-    background: #e64e2c;
-  }
-  
-  
-  .chart-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 30px;
-  }
-  
-  .chart-container canvas {
-    width: 45%;
-    max-width: 100%;
-  }
-  
-  @media (max-width: 600px) {
-    .entry-form {
-      grid-template-columns: 1fr;
-    }
-  
-    .expense-list li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-  
-  .export-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .export-buttons button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .export-buttons button:hover {
-    background-color: #e2a517;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
-  
-  .button-group button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 48%;
-  }
-  
-  .button-group button.active {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .button-group button:hover {
-    background-color: #45a049;
-  }
-  
-  .entry-form select,
-  .entry-form input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .entry-form button {
-    padding: 10px 20px;
-    background-color: #d12c2c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .entry-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  #submit{
-    background-color: #1d37ae;
-  }
-  #submit:hover{
-    background-color: #1574c2;
-  }
+}
 
-  .history-toggle {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    margin-top: 20px; /* Add space above the button */
-  }
-  
-  .history-toggle button {
-    padding: 10px 20px; /* Increased padding for a distinct look */
-    font-size: 15px;
-    font-weight: bold;
-    color: #fff; /* White text */
-    background-color: #000; /* Black button */
-    border: none;
-    border-radius: 8px; /* More rounded corners for a unique style */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .history-toggle button:hover {
-    background-color: #333; /* Slightly lighter black on hover */
-    transform: scale(1.1); /* More noticeable hover effect */
-  }
-  
-  .history-toggle button:active {
-    background-color: #555; /* Lighter black on click */
-    transform: scale(0.95); /* Slightly smaller when clicked */
-  }
-  
-  .history-toggle button:focus {
-    outline: 2px solid #fff; /* Add a white outline for accessibility */
-  }
-  
-  
-  
-  .transaction-history {
-    margin-top: 20px;
-  }
-  
-  .transaction-history table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .transaction-history th,
-  .transaction-history td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .transaction-history th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  .transaction-history tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  
+#submit {
+  margin-top: 20px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}

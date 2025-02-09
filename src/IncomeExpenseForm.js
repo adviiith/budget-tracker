@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react"
 
 const IncomeExpenseForm = ({ onAddEntry }) => {
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
-  const [type, setType] = useState("income");
-  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
-  const [customCategory, setCustomCategory] = useState("");
+  const [amount, setAmount] = useState("")
+  const [category, setCategory] = useState("")
+  const [type, setType] = useState("income")
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false)
+  const [customCategory, setCustomCategory] = useState("")
   const [categories, setCategories] = useState([
     "Food",
     "Entertainment",
@@ -14,49 +14,59 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
     "Salary",
     "Shopping",
     "Travel", // New category
-    "Healthcare" // New category
-  ]);
+    "Healthcare", // New category
+  ])
+
+  useEffect(() => {
+    const savedCategories = JSON.parse(localStorage.getItem("categories"))
+    if (savedCategories) {
+      setCategories(savedCategories)
+    }
+  }, [])
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // If category is empty, use "Misc"
-    const finalCategory = category === "" ? "Misc" : (type === "expense" ? (category === "Custom" ? customCategory : category) : "N/A");
+    const finalCategory =
+      category === "" ? "Misc" : type === "expense" ? (category === "Custom" ? customCategory : category) : "N/A"
 
     const entry = {
       id: Date.now(),
-      amount: parseFloat(amount),
+      amount: Number.parseFloat(amount),
       category: finalCategory,
       type,
-    };
+    }
 
-    onAddEntry(entry);
+    onAddEntry(entry)
 
     // Reset form fields
-    setAmount("");
-    setCategory(""); // Reset category to empty to avoid showing "Misc"
-    setCustomCategory("");
-  };
+    setAmount("")
+    setCategory("") // Reset category to empty to avoid showing "Misc"
+    setCustomCategory("")
+  }
 
   // Handle the button click for credit/debit
   const handleTypeChange = (type) => {
-    setType(type);
+    setType(type)
     if (type === "expense") {
-      setShowCategoryDropdown(true); // Show category dropdown for expenses
+      setShowCategoryDropdown(true) // Show category dropdown for expenses
     } else {
-      setShowCategoryDropdown(false); // Hide category dropdown for credit
+      setShowCategoryDropdown(false) // Hide category dropdown for credit
     }
-  };
+  }
 
   // Add custom category to the list
   const handleAddCustomCategory = () => {
     if (customCategory.trim() && !categories.includes(customCategory)) {
-      setCategories((prev) => [...prev, customCategory]);
-      setCategory(customCategory); // Select the newly added category
-      setCustomCategory(""); // Clear the input
+      const updatedCategories = [...categories, customCategory]
+      setCategories(updatedCategories)
+      localStorage.setItem("categories", JSON.stringify(updatedCategories))
+      setCategory(customCategory) // Select the newly added category
+      setCustomCategory("") // Clear the input
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit} className="entry-form">
@@ -72,11 +82,7 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
 
       {/* Buttons for credit/debit */}
       <div className="button-group">
-        <button
-          type="button"
-          onClick={() => handleTypeChange("income")}
-          className={type === "income" ? "active" : ""}
-        >
+        <button type="button" onClick={() => handleTypeChange("income")} className={type === "income" ? "active" : ""}>
           Credit
         </button>
         <button
@@ -87,16 +93,12 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
           Debit
         </button>
       </div>
-
+      <br></br>
       {/* Show category dropdown only when 'Debit' is selected */}
       {showCategoryDropdown && (
         <>
           <label htmlFor="category">Expense Category</label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
+          <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">Select an Expense Category</option>
             {categories.map((cat) => (
               <option key={cat} value={cat}>
@@ -115,11 +117,7 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
                 value={customCategory}
                 onChange={(e) => setCustomCategory(e.target.value)}
               />
-              <button
-                type="button"
-                onClick={handleAddCustomCategory}
-                disabled={!customCategory.trim()}
-              >
+              <button type="button" onClick={handleAddCustomCategory} disabled={!customCategory.trim()}>
                 Add
               </button>
             </div>
@@ -131,7 +129,7 @@ const IncomeExpenseForm = ({ onAddEntry }) => {
         Add Entry
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default IncomeExpenseForm;
+export default IncomeExpenseForm

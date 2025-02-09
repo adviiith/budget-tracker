@@ -47,7 +47,6 @@ const SignUp = () => {
         {error && <p>{error}</p>}
         <button className="signup-button" type="submit">Signup</button>
       </form>
-      <Link to="/login" id="login-link">Already Signed Up? Login Here</Link>
     </div>
     
   );
